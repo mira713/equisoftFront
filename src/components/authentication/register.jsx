@@ -5,6 +5,7 @@ import {
   Box,
   Flex,
   FormLabel,
+
   HStack,
   InputGroup,
   InputRightElement,
@@ -14,14 +15,16 @@ import {
   Input,
   Spacer,
   FormControl,
+ 
   Stack,
 } from "@chakra-ui/react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+
 import { useNavigate } from "react-router-dom";
 import { FcInfo } from "react-icons/fc";
-import { CONTAINER } from "../constants/constants";
+
 import Loading from "../Loading/Loading";
-import { ORANGE, POINTER, UNDERLINE } from "../constants/typography";
+
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -30,10 +33,10 @@ const Registration = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [phone, setPhone] = useState("");
+
   const navigate = useNavigate();
-
-
   const handleSubmit = () => {
     if (password.length < 5) {
       alert("Please Provide 5 minimum digit password");
@@ -49,8 +52,9 @@ const Registration = () => {
         phone,
        
       };
+      console.log(payload)
       setLoading(true);
-      fetch(`https://plum-adventurous-cheetah.cyclic.cloud/users/register`, {
+      fetch("https://plum-adventurous-cheetah.cyclic.cloud/user/register", {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -175,13 +179,7 @@ const Registration = () => {
                 ></Input>
               </Flex>
             </FormControl>
-          </Box>
-         
-        </Flex>
-      
-    
-
-        <Box ml="-42.5em" mt="4em">
+            
         <Button
           borderRadius="none"
           type="submit"
@@ -195,7 +193,14 @@ const Registration = () => {
         >
           CREATE ACCOUNT
         </Button>
-        </Box>
+  
+          </Box>
+         
+        </Flex>
+      
+    
+
+       
       </Box>
     </>
   );
