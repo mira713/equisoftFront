@@ -61,7 +61,7 @@ const Create = () => {
           },
         })
           .then((res) => res.json())
-          .then((res)=>{setLoading(false);console.log(res)})
+          .then((res)=>{setLoading(false);console.log(res);navigate("/tasks")})
         //   .then((res) => {
         //     if (res.status == 1) {
         //       setLoading(false);

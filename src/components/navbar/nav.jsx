@@ -3,7 +3,7 @@ import { Box, Flex, Link, useMediaQuery } from '@chakra-ui/react';
 
 const Navbar = () => {
   const [isSmallerScreen] = useMediaQuery("(max-width: 768px)");
-
+  const [auth, setAuth] = React.useState(sessionStorage.getItem('isAuth'?true:false))
   return (
     <>
       <Box

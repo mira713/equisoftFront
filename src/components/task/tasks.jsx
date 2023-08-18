@@ -45,10 +45,13 @@ const Task = () => {
               <Text fontSize="lg" fontWeight="bold">{task.name}</Text>
               <Text>due till : {task.dueDate}</Text>
               <Text>{task.description}</Text>
+              <Text fontWeight={'bold'}>Click to Update</Text>
             </VStack>
           ))}
         </Box> : <Box>
           <Text>Could not find Data</Text>
+          <Text>OR</Text>
+          <Text>Try to create new Task</Text>
         </Box>}
       </VStack>
     </>

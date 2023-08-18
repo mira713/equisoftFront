@@ -55,6 +55,7 @@ const Login = () => {
           })
            setLoading(false)
           Navigate("/")
+          window.location.reload()
         } else {
           setLoading(false)
           alert("Credentials do not match")
@@ -82,7 +83,7 @@ const Login = () => {
       <Box width={{ base: '100%', md: '25%' }} ml={{ base: '0', md: '39em' }}>
         <FormControl>
           <Text fontSize="s" align="left">
-            <b>LOG IN</b>
+            <b>LOGIN</b>
           </Text>
           <Spacer />
           <br />
