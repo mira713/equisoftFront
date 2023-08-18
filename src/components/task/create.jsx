@@ -61,7 +61,7 @@ const Create = () => {
           },
         })
           .then((res) => res.json())
-          .then((res)=>setLoading(false))
+          .then((res)=>{setLoading(false);console.log(res)})
         //   .then((res) => {
         //     if (res.status == 1) {
         //       setLoading(false);

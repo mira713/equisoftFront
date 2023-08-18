@@ -6,6 +6,7 @@ import Task from '../components/task/tasks'
 import Login from '../components/authentication/Login';
 import Register from '../components/authentication/register';
 import Create from '../components/task/create';
+import Update from '../components/task/update'
 
 const AllRoute = () => {
     return (
@@ -18,16 +19,21 @@ const AllRoute = () => {
                 } />
                 <Route path="/tasks" element={
                     <PrivateRoute>
-                        <Task/>
+                        <Task />
                     </PrivateRoute>
-                }/>
+                } />
                 <Route path="/create" element={
                     <PrivateRoute>
-                    <Create/>
-                </PrivateRoute>
-                }/>
-                <Route path='/login' element={<Login/>}/> 
-                <Route path='/signup' element={<Register/>}/>    
+                        <Create />
+                    </PrivateRoute>
+                } />
+                <Route path="/update/:id" element={
+                    <PrivateRoute>
+                        <Update />
+                    </PrivateRoute>
+                } />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Register />} />
             </Routes>
         </div>
     )

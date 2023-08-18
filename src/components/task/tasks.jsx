@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { VStack, Text, Box } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Task = () => {
   const [tasks, setTasks] = useState([]);
-
+  const navigate = useNavigate()
   const getData = () => {
     const token = sessionStorage.getItem("token");
     const config = {
@@ -21,9 +22,13 @@ const Task = () => {
   useEffect(() => {
      getData()
   }, []);
+
+  let switchPage=(id)=>{
+     navigate(`/update/${id}`)
+  }
   return (
     <>
-      <VStack align="stretch" spacing={4}>
+      <VStack spacing={4}>
         <Text fontSize="xl" fontWeight="bold">Task List</Text>
         {tasks[0] ? <Box>
           {tasks.map((task) => (
@@ -34,8 +39,11 @@ const Task = () => {
               borderRadius="lg"
               boxShadow="md"
               align="stretch"
+              onClick={()=>switchPage(task._id)}
+              _hover={{cursor:"pointer"}}
             >
               <Text fontSize="lg" fontWeight="bold">{task.name}</Text>
+              <Text>due till : {task.dueDate}</Text>
               <Text>{task.description}</Text>
             </VStack>
           ))}
